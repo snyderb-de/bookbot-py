@@ -1,2 +1,1 @@
-a Python Book Reporting tool. 
-BootDev class
+BookBot is my first project!

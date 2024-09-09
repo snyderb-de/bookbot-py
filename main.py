@@ -8,7 +8,8 @@ def main():
     
     char_count = count_characters(file_contents)
     
-    sorted_char_count = sort_dict_by_value(char_count)
+    sorted_char_count = list(char_count.items())
+    sorted_char_count.sort(key=get_value, reverse=True)
     
     for char, count in sorted_char_count:
         print(f"The '{char}' character was found {count} times")
@@ -33,18 +34,8 @@ def count_characters(text):
     return char_count
 
 
-def sort_dict_by_value(d):
-    # Convert the dictionary into tuples
-    items = list(d.items())
-    
-    # Sort the list by the count of characters
-    for i in range(len(items)):
-        for j in range(len(items) - i - 1):
-            if items[j][1] < items[j + 1][1]:
-                # Swap the elements if the current value is less than the next value
-                items[j], items[j + 1] = items[j + 1], items[j]
-    
-    return items
+def get_value(item):   
+    return item[1]
 
 
 if __name__ == "__main__":
